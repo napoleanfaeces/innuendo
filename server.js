@@ -18,5 +18,5 @@ app.route('/users').delete(userController.deleteUser);
 app.route('/login').post(userController.loginUser);
 app.route('/getUser').post(userController.getUser);
 
-app.listen(8080, "127.0.0.1"); // start the nodejs to be listening for incoming request @ port 8080
-console.log("Web server running @ http://127.0.0.1:8080"); // output to console
+app.listen(8080, "ec2-18-232-209-130.compute-1.amazonaws.com"); // start the nodejs to be listening for incoming request @ port 8080
+console.log("Web server running @ http://ec2-18-232-209-130.compute-1.amazonaws.com:8080"); // output to console
