@@ -1,0 +1,138 @@
+* {
+    font-family: 'Montserrat';
+}
+
+body {
+    overflow-x: hidden;
+}
+
+footer {
+    background: #aaa;
+    color: white;
+}
+
+.edit {
+    float: right;
+    padding-right: 10px;
+}
+
+.navbar {
+    background-color: #1f1e18;
+}
+
+#top-left {
+    float: right;
+}
+
+.eye {
+    display: absolute;
+}
+
+#bottom-categories li {
+    display: inline-block;
+    margin-left: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+    margin-right: 10px;
+    position: relative;
+    color: white;
+}
+
+footer li {
+    display: inline-block;
+    padding-left: 35px;
+    position: relative;
+}
+
+#firstrow li {
+    display: inline-block;
+    position: relative;
+}
+
+#about:hover {
+    cursor: pointer;
+}
+
+a:hover {
+    text-decoration: none;
+}
+
+.form-group span {
+    position: absolute;
+    right: 15px;
+    margin-top: 27px;
+    margin-right: 45px;
+    transform: translate(0, -50%);
+    top: 50%;
+    cursor: pointer;
+}
+
+#searchBar {
+    width: 100%;
+    height: 32px;
+    border-radius: 5px;
+    border: 1px solid #eaeaea;
+    padding: 5px 10px;
+    font-size: 18px;
+}
+
+#searchWrapper {
+    position: relative;
+}
+
+.character > img {
+    max-width: 80px;
+}
+
+#charactersList {
+    padding-inline-start: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    grid-gap: 20px;
+}
+
+.character {
+    color: white;
+    list-style-type: none;
+    background-color: #32252B;
+    opacity: 0.9;
+    border-radius: 3px;
+    padding: 10px 20px;
+    display: grid;
+    grid-template-columns: 3fr 1fr;
+    grid-template-areas:
+        'name image'
+        'house image';
+    text-align: left;
+}
+
+.character > h2 {
+    font-size: 18px;
+    grid-area: name;
+    margin-bottom: 0px;
+}
+
+.character > p {
+    font-size: 12px;
+    grid-area: house;
+    margin: 0;
+    margin-top: -18px;
+}
+
+.character > img {
+    max-height: 80px;
+    grid-area: image;
+}
+
+#searchBar {
+    width: 100%;
+    height: 32px;
+    border-radius: 10px;
+    border: 1px solid #eaeaea;
+    padding: 5px 10px;
+    font-size: 18px;
+}
+
+#searchWrapper {
+    position: relative;
+}

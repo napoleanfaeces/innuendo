@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Eatwhere</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+    <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
+    <link rel="stylesheet" href="css/mystyle.css">
+    <script src="https://kit.fontawesome.com/f1548bab71.js" crossorigin="anonymous"></script>
+    <script>
+        var token = sessionStorage.getItem("token");
+    </script>
+</head>
+<body onload="getRestaurantData()" style="background-image: url('images/background.png')">
+    <!-- Include top navigation here -->
+    <div w3-include-html="top-navigation.html"></div>
+    <!-- This is the container that holds the initial message, heading, and restaurants -->
+    <a href="index.html">
+        <img src="images/innuendo-logo.png" href="index.html" style="width: 280px; display: block; margin-left: auto; margin-right: auto; width:280px; margin-top: 35px;">
+    </a>
+    <br>
+    <div style="width: 100%; height: 620px; margin-left: 60px; margin-right: 60px;">
+        <!--Left side (filter)-->
+        <div style="border-radius: 5px 5px 5px 5px; background-color: #1f1e18; width: 300px; height: 95px; opacity: 0.9">
+            <p style="font-size: 18px; color: white; padding-left: 10px; padding-top: 7px; font-weight: bold;">Got a song that you love?</p>
+            <button style="border-radius: 5px 5px 5px 5px; margin-top: -5px; height: 40px; width: 280px; font-size: 18px; color: white; margin-left: 10px; background-color: #32252B; border: none; cursor: pointer;">Share it with others here!</button>
+        </div>
+        <div style="border-radius: 5px 5px 5px 5px; background-color: #1f1e18; width: 300px; height: 83.5%; opacity: 0.9; margin-top: 7px;">
+            <p style="font-size: 18px; color: white; padding-left: 10px; padding-top: 7px; font-weight: bold;">Filter by genre</p>
+            <a href="filter-restaurants.html" onclick="setPopVariable();" style="text-decoration: none; cursor: pointer; color: white;"><p style="font-size: 16px; padding-left: 10px; margin-top: -10px;">Pop</p></a>
+            <a href="filter-restaurants.html" onclick="setPopRockVariable();" style="text-decoration: none; cursor: pointer; color: white;"><p style="font-size: 16px; padding-left: 10px; margin-top: -10px;">Pop Rock</p></a>
+            <a href="filter-restaurants.html" onclick="setSlowPopVariable();" style="text-decoration: none; cursor: pointer; color: white;"><p style="font-size: 16px; padding-left: 10px; margin-top: -10px;">Slow Pop</p></a>
+            <a href="filter-restaurants.html" onclick="setRapVariable();" style="text-decoration: none; cursor: pointer; color: white;"><p style="font-size: 16px; padding-left: 10px; margin-top: -10px;">Hip-Hop and Rap</p></a>
+            <a href="filter-restaurants.html" onclick="setRockVariable();" style="text-decoration: none; cursor: pointer; color: white;"><p style="font-size: 16px; padding-left: 10px; margin-top: -10px;">Rock</p></a>
+            <a href="filter-restaurants.html" onclick="setEDMVariable();" style="text-decoration: none; cursor: pointer; color: white;"><p style="font-size: 16px; padding-left: 10px; margin-top: -10px;">Electronic Dance</p></a>
+            <a href="filter-restaurants.html" onclick="setIndiePopVariable();" style="text-decoration: none; cursor: pointer; color: white;"><p style="font-size: 16px; padding-left: 10px; margin-top: -10px;">Indie Pop</p></a>
+            <a href="filter-restaurants.html" onclick="setIndieRockVariable();" style="text-decoration: none; cursor: pointer; color: white;"><p style="font-size: 16px; padding-left: 10px; margin-top: -10px;">Indie Rock</p></a>
+            <a href="filter-restaurants.html" onclick="setSlowIndieVariable();" style="text-decoration: none; cursor: pointer; color: white;"><p style="font-size: 16px; padding-left: 10px; margin-top: -10px;">Slow Indie</p></a>
+            <p style="font-size: 18px; color: white; padding-left: 10px; padding-top: 0px; font-weight: bold;">Filter by category</p>
+            <a href="filter-restaurants-category.html" onclick="setOurPicksVariable();" style="text-decoration: none; cursor: pointer; color: white;"><p style="font-size: 16px; padding-left: 10px; margin-top: -10px;">Our Picks</p></a>
+            <a href="reviews.html" style="text-decoration: none; cursor: pointer; color: white;"><p style="font-size: 16px; padding-left: 10px; margin-top: -10px;">Recently Added</p></a>
+        </div>
+        <!--Right side (results)-->
+        <div id='right' style="border-radius: 5px 5px 5px 5px; background-color: #1f1e18; margin-right: 130px; margin-top: -620px; width: 77%; height: 100%; float: right; opacity: 0.9;">
+            <p style="font-size: 18px; color: white; margin-left: 10px; margin-top: 7px; font-weight: bold;">Genre : <span id="genreHeader"></span></p>
+            <div id="restaurantsTable" class="row" style="margin-top: -5px; margin-left: 1px;"></div>
+        </div>
+    </div>
+
+    <footer style="background-color: #1f1e18; margin-top: 52px; height: 70px;">
+        <ul id="footer-about" style="color: white; font-size: 18px; padding-top: 20px;">
+            <a id="about" data-toggle="modal" data-target="#messageModal" style="font-weight: bold;"><li>About</li></a>
+            <li style="font-weight: bold;">Contact</li>
+            <li style="font-weight: bold;">Get Featured</li>
+            <div style="float: right; margin-right: 80px;">
+                <li><i class="fa-brands fa-instagram fa-2xl" style="margin-left: 830px;"></i></li>
+                <li><i class="fa-brands fa-spotify fa-2xl"></i></li>
+            </div>
+        </ul>
+    </footer>
+    
+    <!-- Displays thumbnails of top rated restaurants here -->
+  
+    <!-- Displays thumbnails of recently added restaurants here-->
+    
+        
+    </div>
+    <!-- Include the restaurant modal here -->
+    <div w3-include-html="restaurant-modal.html"></div>
+    <!-- Include the message modal here -->
+    <div w3-include-html="message-modal.html"></div>
+    <!-- Include the login modal here -->
+    <div w3-include-html="login-modal.html"></div>
+    <!-- Include the register modal here -->
+    <div w3-include-html="register-modal.html"></div>
+    <!-- Include the register success modal here -->
+    <div w3-include-html="success-modal.html"></div>
+    <!-- Include the login success modal here -->
+    <div w3-include-html="success-modal-login.html"></div>
+    <!-- Include the account modal here -->
+    <div w3-include-html="account-modal.html"></div>
+    <div w3-include-html="success-modal-logout.html"></div>
+    <div w3-include-html="success-modal-delete.html"></div>
+
+    <!--Footer-->
+    <!-- <footer style="background-color: #1f1e18; height: 70px;">
+        <ul style="color: white; font-size: 18px; padding-top: 20px;">
+            <a id="about" data-toggle="modal" data-target="#messageModal"><li>About</li></a>
+            <li>Advisors</li>
+            <li>Get Featured</li>
+            <li><i class="fa-brands fa-instagram fa-2xl" style="margin-left: 930px;"></i></li>
+            <li><i class="fa-brands fa-facebook-square fa-2xl"></i></li>
+        </ul>
+    </footer> -->
+
+</body>
+<script src="https://www.w3schools.com/lib/w3.js"></script>
+<script>
+    //to bring in other HTML on the fly into this page
+    w3.includeHTML();
+</script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+<script src="https://kit.fontawesome.com/86ec7c1143.js" ></script>
+<script src="js/app.js"></script>
+<script src="js/comments.js"></script>
+<script src="js/filter-restaurants.js"></script>
+<script src="js/set-filter.js"></script>
+<script src="js/register.js"></script>
+<script src="js/login.js"></script>
+<script src="js/checktoken.js"></script>
+<script src="js/toggle.js"></script>
+<script src="js/loadProfile.js"></script>
+<script src="js/logout.js"></script>
+<script src="js/delete.js"></script>
+</html>
+

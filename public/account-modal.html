@@ -1,0 +1,26 @@
+<!-- this is a structure of Bootstrap Modal -->
+<script src="https://kit.fontawesome.com/f1548bab71.js" crossorigin="anonymous"></script>
+<link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
+<script>
+    var username, email;
+</script>
+<div class="modal fade " id="accountModal" tabindex="-1" role="dialog">    
+	<div class="modal-dialog" role="document">        
+		<div class="modal-content">     
+			<div class="modal-header bg-dark text-center" style="width: 499px;">
+                <h3 class="modal-title text-light">Your Account</h3>
+                <button type="button" style="border: none; background: none; color: white;" data-dismiss="modal">
+                    <span>&times;</span>
+                </button>
+            </div>  
+            <div>      
+                <p style="font-size: 24px; margin-top: 5px; margin-left: 15px;" id="name">Username</p>
+                <p style="font-size: 14px; margin-top: -10px; margin-left: 15px;" id="emailText">Email</p>
+                <button style="background-color: #343A40; color: white; border: none; margin-top: -40px; margin-left: 15px; cursor: pointer;">Saved Music</button>
+                <button onclick="logoutMe();" style="background-color: #343A40; color: white;border: none; margin-top: -40px; margin-left: 5px; cursor: pointer;">Log Out</button>
+                <button onclick="deleteAccount();" style="background-color: #343A40; color: white; border: none; margin-left: 5px; margin-top: -40px; margin-bottom: 10px; cursor: pointer;">Delete Account</button>
+            </div>     
+			
+		</div>    
+	</div>
+</div>
