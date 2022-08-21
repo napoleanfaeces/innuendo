@@ -18,7 +18,7 @@ searchBar.addEventListener('keyup', (e) => {
 
 const loadCharacters = async () => {
     try {
-        const res = await fetch('http://127.0.0.1:8080/everysong');
+        const res = await fetch('http://ec2-18-232-209-130.compute-1.amazonaws.com:8080/everysong');
         hpCharacters = await res.json();
         displayCharacters(hpCharacters);
     } catch (err) {
@@ -50,7 +50,7 @@ function setSongTitle(element) {
 
     var getSong = new XMLHttpRequest();
 
-    getSong.open("POST", "http://127.0.0.1:8080/getSong", true);   
+    getSong.open("POST", "http://ec2-18-232-209-130.compute-1.amazonaws.com:8080/getSong", true);   
     getSong.setRequestHeader("Content-Type", "application/json");
     getSong.onload = function() {
         song = JSON.parse(getSong.responseText);
@@ -74,7 +74,7 @@ function setSongTitle(element) {
 function recommendSong(title, artist, genre, image, preview) {
     console.log("Recommend")
     var addSong = new XMLHttpRequest();
-    addSong.open("POST", "http://127.0.0.1:8080/songs", true);
+    addSong.open("POST", "http://ec2-18-232-209-130.compute-1.amazonaws.com:8080/songs", true);
     addSong.setRequestHeader("Content-Type", "application/json");
     var payload = {title:title, artist:artist, genre:genre, image:image, preview:preview};
     addSong.send(JSON.stringify(payload));
