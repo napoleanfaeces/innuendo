@@ -13,7 +13,7 @@ function validate() {
 function registerMe() {
     
     var registerUser = new XMLHttpRequest();
-    registerUser.open("POST", "http://127.0.0.1:8080/users", true);
+    registerUser.open("POST", "http://ec2-18-232-209-130.compute-1.amazonaws.com:8080/users", true);
     registerUser.setRequestHeader("Content-Type", "application/json");
     registerUser.onload = function() {
         document.getElementById("username").value = '';
