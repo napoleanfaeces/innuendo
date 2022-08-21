@@ -1,7 +1,7 @@
 function loginMe() {
     var loginUser = new XMLHttpRequest();
     
-    loginUser.open("POST", "http://127.0.0.1:8080/login", true);
+    loginUser.open("POST", "http://ec2-18-232-209-130.compute-1.amazonaws.com:8080/login", true);
     loginUser.setRequestHeader("Content-Type", "application/json");
     loginUser.onload = function() {
         var token = JSON.parse(loginUser.responseText);
